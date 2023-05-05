@@ -16,5 +16,5 @@ display: flex;
 align-items: center;
 position: relative;
 z-index: 1;
-position: fixed;
+position: fixed;bottom:0
 `
