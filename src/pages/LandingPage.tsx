@@ -26,7 +26,7 @@ font-weight: 700;
 `
 
 const Main = styled.div`
-width:90%
+width:96%
 `
 
 const Container = styled.div<{ w: string }>`
