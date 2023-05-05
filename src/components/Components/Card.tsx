@@ -69,7 +69,7 @@ const Card = () => {
                                 </SubText>
                                 <Icon r="" onClick={removeCount} />
                             </Div>
-                            <Div bg="" >{<div>{counter}</div>}</Div>
+                            <Div bg="f" >{<div>{counter}</div>}</Div>
                             <Div bg="r" >3</Div>
                             <Div bg="r" >4</Div>
                         </MainCard>
