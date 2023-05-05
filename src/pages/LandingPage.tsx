@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import Card from '../components/Components/Card'
+import { ContextState } from '../Global/stateProvider'
 
 const LandingPage = () => {
-    const [toggle, setToggle] = useState<boolean>(false)
-
-    const onToggle = () => {
-        setToggle(!toggle)
-    }
+    const { toggle } = useContext(ContextState)
 
     return (
         <Wrapper>
@@ -22,13 +19,16 @@ const LandingPage = () => {
 
 export default LandingPage
 
-const Main = styled.div``
+const Main = styled.div`
+width:90%
+`
 
 const Container = styled.div<{ w: string }>`
 width:calc(100% - ${({ w }) => w});
 height: calc(100vh - 122px);
 /* background-color: red; */
 display:flex;
+transition: all 360ms;
 `
 
 const Wrapper = styled.div`

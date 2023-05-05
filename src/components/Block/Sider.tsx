@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { BsArrowBarRight, BsArrowBarLeft } from "react-icons/bs"
+import { ContextState } from "../../Global/stateProvider"
 
 export const Sider = () => {
-    const [toggle, setToggle] = useState<boolean>(false)
+    const { toggle, setToggle } = useContext(ContextState)
 
     const onToggle = () => {
         setToggle(!toggle)
@@ -39,7 +40,7 @@ const Container = styled.div<{
 transition:all 350ms;
 position: fixed;
 height: calc(100vh - 122px);
-background-color: silver;
+background-color: #e0e0e0;
 width: ${({ w }) => w ? "200px" : "50px"}
 
 `

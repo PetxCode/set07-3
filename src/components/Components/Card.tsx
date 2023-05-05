@@ -26,16 +26,9 @@ const Card = () => {
         })
     }
 
-    const removeCount1 = () => {
-        setCounter(
-            (counter: number) => {
-                if (counter <= 1) {
-                    return counter = 30
-                } else {
-                    return counter - 1
-                }
-            })
-    }
+    console.log(
+        21 % 5
+    )
 
     return (
         <div>
@@ -48,7 +41,9 @@ const Card = () => {
                                     onClick={addCount}
                                 />
                                 <Text>{counter % 30 + 1}</Text>
-                                <SubText>November</SubText>
+                                <SubText>
+                                    January
+                                </SubText>
                                 <Icon r="" onClick={removeCount} />
                             </Div>
                             <Div bg="r" >2</Div>
@@ -129,15 +124,15 @@ align-items: center;
 `
 
 const Main = styled.div`
-width: 1000px;
+width: 100%;
 height: 600px;
 border-radius: 10px;
 border: 1px solid silver;
 background: rgb(254,231,251);
 background: linear-gradient(318deg, rgba(254,231,251,1) 0%, rgba(229,242,249,1) 39%, rgba(234,249,255,1) 95%);
+`;
 
-`
 const Container = styled.div`
 width: 100%;
-margin: 20px
+margin: 20px;
 `
