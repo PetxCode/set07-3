@@ -143,7 +143,7 @@ background-position: 0% 0%;
 background-size: 3vmin 3vmin;
 display: flex;
 justify-content: center;
-align-items: center;
+padding-top: 100px
 `
 
 const Main = styled.div`
