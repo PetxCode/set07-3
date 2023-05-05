@@ -4,9 +4,21 @@ import { RiArrowDropDownLine } from "react-icons/ri"
 const Card = () => {
 
     const [counter, setCounter] = useState<number>(1)
+    const [counter2, setCounter2] = useState<number>(1)
 
     const addCount = () => {
         setCounter((el: number) => {
+
+            if (el === 0) {
+                return el = 1
+            } else {
+                return el + 1
+            }
+        })
+    }
+
+    const addCount2 = () => {
+        setCounter2((el: number) => {
 
             if (el === 0) {
                 return el = 1
@@ -38,15 +50,26 @@ const Card = () => {
                         <MainCard>
                             <Div bg="" >
                                 <Icon r="e"
-                                    onClick={addCount}
+                                    onClick={() => {
+                                        addCount()
+                                        addCount2()
+                                    }}
                                 />
                                 <Text>{counter % 30 + 1}</Text>
                                 <SubText>
-                                    January
+                                    {
+                                        counter + 1 < 31 ? <div>January</div> :
+                                            counter + 1 < 61 ? <div>Feburary</div> :
+                                                counter + 1 < 91 ? <div>March</div> :
+                                                    counter + 1 < 121 ? <div>April</div> :
+                                                        counter + 1 < 151 ? <div>May</div> :
+                                                            counter + 1 < 181 ? <div>June</div> :
+                                                                null
+                                    }
                                 </SubText>
                                 <Icon r="" onClick={removeCount} />
                             </Div>
-                            <Div bg="r" >2</Div>
+                            <Div bg="e" >{<div>{counter}</div>}</Div>
                             <Div bg="r" >3</Div>
                             <Div bg="r" >4</Div>
                         </MainCard>
