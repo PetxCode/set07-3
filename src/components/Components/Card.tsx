@@ -63,13 +63,13 @@ const Card = () => {
                                                 counter + 1 < 91 ? <div>March</div> :
                                                     counter + 1 < 121 ? <div>April</div> :
                                                         counter + 1 < 151 ? <div>May</div> :
-                                                            counter + 1 < 181 ? <div>June</div> :
+                                                            counter + 1 < 18 ? <div>June</div> :
                                                                 null
                                     }
                                 </SubText>
                                 <Icon r="" onClick={removeCount} />
                             </Div>
-                            <Div bg="e" >{<div>{counter}</div>}</Div>
+                            <Div bg="" >{<div>{counter}</div>}</Div>
                             <Div bg="r" >3</Div>
                             <Div bg="r" >4</Div>
                         </MainCard>
@@ -148,7 +148,7 @@ align-items: center;
 
 const Main = styled.div`
 width: 100%;
-height: 600px;
+height: 900px;
 border-radius: 10px;
 border: 1px solid silver;
 background: rgb(254,231,251);

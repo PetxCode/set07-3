@@ -10,6 +10,7 @@ const LandingPage = () => {
         <Wrapper>
             <Container w={toggle ? "200px" : "50px"} >
                 <Main>
+                    <Text>Landing Page</Text>
                     <Card />
                 </Main>
             </Container>
@@ -19,6 +20,11 @@ const LandingPage = () => {
 
 export default LandingPage
 
+const Text = styled.div`
+margin: 10px 20px;
+font-weight: 700;
+`
+
 const Main = styled.div`
 width:90%
 `
@@ -26,7 +32,6 @@ width:90%
 const Container = styled.div<{ w: string }>`
 width:calc(100% - ${({ w }) => w});
 height: calc(100vh - 122px);
-/* background-color: red; */
 display:flex;
 transition: all 360ms;
 `
@@ -35,4 +40,6 @@ const Wrapper = styled.div`
 width: 100%;
 display:flex;
 justify-content: flex-end;
+padding-top: 65px;
+background-color: #f8f8f8;
 `

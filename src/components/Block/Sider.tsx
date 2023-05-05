@@ -39,8 +39,9 @@ const Container = styled.div<{
 }>`
 transition:all 350ms;
 position: fixed;
-height: calc(100vh - 122px);
+height: calc(100vh - 110px);
 background-color: #e0e0e0;
-width: ${({ w }) => w ? "200px" : "50px"}
+width: ${({ w }) => w ? "200px" : "50px"};
+top:62px
 
 `
