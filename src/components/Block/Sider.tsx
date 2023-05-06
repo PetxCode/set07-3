@@ -24,8 +24,21 @@ export const Sider = () => {
 }
 
 
-const Icon1 = styled(BsArrowBarRight)``
-const Icon2 = styled(BsArrowBarLeft)``
+const Icon1 = styled(BsArrowBarRight)`
+margin-top: 10px;
+font-size:20px;
+:hover{
+    cursor: pointer;
+}
+`
+const Icon2 = styled(BsArrowBarLeft)`
+margin-top: 10px;
+
+font-size:20px;
+:hover{
+    cursor: pointer;
+}
+`
 
 const Main = styled.div`
 display:flex;

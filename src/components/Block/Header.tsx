@@ -2,6 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { BiSearch } from "react-icons/bi"
+import Button from "../reUse/Button"
+
+import { AiOutlineCrown } from "react-icons/ai"
+import { BsPersonBoundingBox } from "react-icons/bs"
 
 export const Header = () => {
     return (
@@ -9,7 +13,7 @@ export const Header = () => {
             <Container>
                 <Main>
                     <Div>
-                        <Logo>Logo</Logo>
+                        <Logo>CodeLab</Logo>
                         <Text>Browse</Text>
                         <Icon />
                     </Div>
@@ -19,14 +23,58 @@ export const Header = () => {
                             <Icon2 />
                         </InputHolder>
                     </Div>
-                    <Div>3</Div>
+                    <Div>
+                        <IconHolder>
+                            <Circle>10</Circle>
+                            <Icon3 />
+                        </IconHolder>
+                        <Button
+                            title="Log In"
+                            tc="black"
+                            bg="silver"
+                        />
+                        <Button
+                            title="Sign Up"
+                            tc="white"
+                            bg="purple"
+                        />
+                        <Icon4 />
+                    </Div>
                 </Main>
             </Container>
         </div>
     )
 }
 
-// const Main = styled.div``
+// const Circle = styled.div``
+
+const Circle = styled.div`
+width:15px;
+height:15px;
+border-radius: 50%;
+background-color: red;
+color: white;
+display:flex;
+justify-content: center;
+align-items: center;
+font-size: 7px;
+font-weight:900;
+position:absolute;
+right: 5px;
+top:-5px;
+`
+const IconHolder = styled.div`
+position: relative;
+`
+
+const Icon3 = styled(AiOutlineCrown)`
+padding: 0 10px;
+font-size:18px;
+`
+const Icon4 = styled(BsPersonBoundingBox)`
+padding: 0 10px;
+font-size:18px;
+`;
 const Icon2 = styled(BiSearch)`
 padding: 0 10px
 `
@@ -76,11 +124,18 @@ transition: all 0.08s ease-in-out;
     cursor: pointer;
 }
 `
-const Logo = styled.div``
+const Logo = styled.div`
+font-weight: 900;
+font-size: 12px;
+cursor: pointer;
+`
+
 const Div = styled.div`
 display:flex;
 align-items: center;
-height: 100%`
+height: 100%;
+
+`;
 
 const Main = styled.div`
 width: 98%;
