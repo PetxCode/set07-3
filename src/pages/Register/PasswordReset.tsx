@@ -10,7 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import LoadingState from "../../LoadingState";
 
-const url = "https://set07.onrender.com";
+const url = "https://codelab-hub.onrender.com";
 // const url = "http://localhost:2400";
 
 const PasswordReset = () => {

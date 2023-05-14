@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import LoadingState from "../../LoadingState";
 import { useGetUser } from "../../hooks/useGetUser";
 
-const url = "http://localhost:4455";
+const url = "https://codelab-hub.onrender.com";
 
 const PersonalInfo = () => {
   const user: any = useGetUser();

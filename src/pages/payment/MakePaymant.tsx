@@ -12,13 +12,14 @@ import { v4 as uuid } from "uuid"
 
 const MakePayment: React.FC = () => {
 
-    // http://localhost:4455/api/booking/645e86138c55c3116613fd32/create-bookings
-    const url: string = "http://localhost:4455";
+
+    const url: string = "https://codelab-hub.onrender.com";
 
     const user: any = useGetUser()
     const history: any = useGetHistory()
     const navigate = useNavigate();
     const [data, setData] = useState(0);
+    const [goal, setGoal] = useState("");
 
 
     const config: any = {
@@ -31,9 +32,9 @@ const MakePayment: React.FC = () => {
     };
 
 
-
+    console.log(data)
     const booking = async () => {
-        await axios.post(`${url}/api/booking/${user._id}/create-bookings`, { days: data })
+        await axios.post(`${url}/api/booking/${user._id}/create-bookings`, { days: data, goal })
         await axios.get(`${url}/api/booking/${user._id}/${history[0]?._id}/view-bookings`)
 
 
@@ -42,6 +43,8 @@ const MakePayment: React.FC = () => {
     const onSuccess = () => {
         // /:id/:bookingID/view-bookings
         booking()
+        navigate("/dashboard")
+        console.log(data)
     };
 
     const onClose = () => {
@@ -75,6 +78,12 @@ const MakePayment: React.FC = () => {
                                 value={data}
                                 type="number"
                                 onChange={(e: any) => setData(e.target.value)}
+                            />
+
+                            <InputArea
+                                placeholder="What's your Goal for Booking!"
+                                value={goal}
+                                onChange={(e: any) => setGoal(e.target.value)}
                             />
                         </InputHolder>
 
@@ -112,6 +121,21 @@ const InputHolder = styled.div`
 `;
 
 
+
+const InputArea = styled.textarea`
+resize: none;
+  width: 90%;
+  outline: none;
+  border: 1px solid purple;
+  height: 80px;
+  margin: 5px 0;
+  border-radius: 3px;
+  padding-left: 10px;
+
+  ::placeholder {
+    font-family: Poppins;
+  }
+`;
 
 const Input = styled.input`
   width: 90%;

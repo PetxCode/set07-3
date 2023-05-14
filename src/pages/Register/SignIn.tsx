@@ -37,7 +37,7 @@ const SignIn = () => {
   });
 
   const onSubmit = handleSubmit(async (data: any) => {
-
+    console.log("Push")
     setLoading(true);
     await axios
       .post(`${url}/api/auth/sign-in`, data)

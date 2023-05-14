@@ -13,7 +13,7 @@ import LoadingState from "../../LoadingState";
 import logo from "../../assets/2.png";
 import { useGetUser } from "../../hooks/useGetUser";
 
-const url = "http://localhost:4455";
+const url = "https://codelab-hub.onrender.com";
 
 const ImageSettings = () => {
   const newUser: any = useGetUser()

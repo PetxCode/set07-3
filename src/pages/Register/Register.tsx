@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import LoadingState from "../../LoadingState";
 
-const url = "http://localhost:4455/api/auth/create";
+const url = "https://codelab-hub.onrender.com/api/auth/create";
 
 const Register = () => {
   const navigate = useNavigate();
