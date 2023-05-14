@@ -23,7 +23,9 @@ export const mainRoute = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <StartUp />
+                element:
+                    <PrivateRoute><StartUp /></PrivateRoute>
+
             },
             {
                 path: "register",
