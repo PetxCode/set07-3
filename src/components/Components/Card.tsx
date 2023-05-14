@@ -82,6 +82,12 @@ const Card = () => {
 
 export default Card
 
+const Start = styled.div`
+min-height: 100%;
+background-color: red;
+`
+
+
 const SubText = styled.div``
 const Text = styled.div`
 font-size: 55px;
@@ -107,7 +113,7 @@ transform: rotate(${({ r }) => r ? "180deg" : "0deg"});
 
 const Div = styled.div<{ bg: string }>`
 width: 110px;
-height: 80%;
+height:  180px;;
 background-color:${({ bg }) => bg ? "white" : "transparent"} ;
 margin: 0 5px;
 border-radius:3px;
@@ -120,10 +126,12 @@ align-items: center;
 
 const MainCard = styled.div`
 display: flex;
+flex-wrap: wrap;
 align-items: center;
 justify-content: center;
-width: 500px;
-height: 200px;
+padding: 0 5px;
+/* width: 500px; */
+min-height: 200px;
 border-radius: 10px;
 background: rgb(254,231,251);
 background: linear-gradient(60deg, rgba(254,231,251,1) 0%, rgba(6,103,156,1) 0%, rgba(95,192,231,1) 100%);
@@ -143,11 +151,11 @@ background-position: 0% 0%;
 background-size: 3vmin 3vmin;
 display: flex;
 justify-content: center;
-padding-top: 100px
+padding-top: 40px
 `
 
 const Main = styled.div`
-width: 100%;
+width: 99%;
 height: 900px;
 border-radius: 10px;
 border: 1px solid silver;

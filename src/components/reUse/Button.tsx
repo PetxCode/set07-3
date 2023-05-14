@@ -6,12 +6,13 @@ interface iButton {
     bg?: string;
     title?: string;
     tc?: string;
+    onClick?: () => void
 }
 
-const Button: React.FC<iButton> = ({ bg, title, tc }) => {
+const Button: React.FC<iButton> = ({ bg, title, tc, onClick }) => {
     return (
         <div>
-            <Container bg={`${bg}`} >
+            <Container bg={`${bg}`} onClick={onClick}>
                 <Main tc={`${tc}`}>{title}</Main>
             </Container>
         </div>
@@ -31,7 +32,9 @@ background-color: ${({ bg }) => bg};
 border-radius: 3px;
 margin: 0 5px;
 transition: all 350ms;
-
+display: flex;
+justify-content: center;
+align-items: center;
 :hover{
     cursor: pointer;
     transform: scale(1.04);

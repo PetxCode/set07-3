@@ -3,11 +3,14 @@ import styled from "styled-components"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { BiSearch } from "react-icons/bi"
 import Button from "../reUse/Button"
-
+import { Link } from "react-router-dom"
 import { AiOutlineCrown } from "react-icons/ai"
 import { BsPersonBoundingBox } from "react-icons/bs"
+import { useSelector } from "react-redux"
 
 export const Header = () => {
+    const user = useSelector((state: any) => state.user)
+    console.log(user)
     return (
         <div>
             <Container>
@@ -17,27 +20,27 @@ export const Header = () => {
                         <Text>Browse</Text>
                         <Icon />
                     </Div>
-                    <Div>
-                        <InputHolder>
-                            <Input placeholder="search" />
-                            <Icon2 />
-                        </InputHolder>
-                    </Div>
+
                     <Div>
                         <IconHolder>
                             <Circle>10</Circle>
                             <Icon3 />
                         </IconHolder>
-                        <Button
-                            title="Log In"
-                            tc="black"
-                            bg="silver"
-                        />
-                        <Button
-                            title="Sign Up"
-                            tc="white"
-                            bg="purple"
-                        />
+                        {
+                            !user ? <div style={{ display: "flex" }} >
+                                <Linked to="/sign-in" >  <Button
+                                    title="Log In"
+                                    tc="black"
+                                    bg="silver"
+                                /></Linked>
+
+                                <Linked to="/register" >
+                                    <Button
+                                        title="Sign Up"
+                                        tc="white"
+                                        bg="purple"
+                                    /></Linked></div> : null
+                        }
                         <Icon4 />
                     </Div>
                 </Main>
@@ -46,7 +49,9 @@ export const Header = () => {
     )
 }
 
-// const Circle = styled.div``
+const Linked = styled(Link)`
+text-decoration: none;
+`
 
 const Circle = styled.div`
 width:15px;

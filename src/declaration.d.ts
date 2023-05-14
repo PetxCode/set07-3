@@ -1,0 +1,12 @@
+declare module "*./assets/ani.git";
+declare module "*./assets/anime.git";
+declare module "*./assets/cool.png";
+declare module "*./assets/vid.mp4";
+declare module "*./assets";
+declare module "*react-redux";
+declare module "*sweetalert2";
+declare module "*yup";
+declare module "*uuid";
+declare module "*react-router-dom";
+declare module "*react-hook-form";
+declare module "*@hookform/resolvers/yup";

@@ -2,6 +2,9 @@ import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import Card from '../components/Components/Card'
 import { ContextState } from '../Global/stateProvider'
+import RightScreenPage from '../components/Components/RightScreenPage'
+import LeftScreenPage from '../components/Components/LeftScreenPage'
+import moment from 'moment'
 
 const LandingPage = () => {
     const { toggle } = useContext(ContextState)
@@ -10,8 +13,25 @@ const LandingPage = () => {
         <Wrapper>
             <Container w={toggle ? "200px" : "50px"} >
                 <Main>
-                    <Text>Landing Page</Text>
-                    <Card />
+                    {/* <Text>Landing Page</Text> */}
+                    <Top>
+                        <Title>Dashboard</Title>
+                        <Title> {moment(Date.now()).format('dddd')}, {moment(Date.now()).format("MMM Do YY")}</Title>
+                    </Top>
+                    {/* <Card /> */}
+                    <ViewScreen>
+                        {/* <RightScreenPage /> */}
+
+                        {/* right screen */}
+                        <RightScreen>
+                            <RightScreenPage />
+                        </RightScreen>
+                        <LeftScreen>
+                            <LeftScreenPage />
+                        </LeftScreen>
+                        {/* left screen */}
+
+                    </ViewScreen>
                 </Main>
             </Container>
         </Wrapper>
@@ -19,6 +39,56 @@ const LandingPage = () => {
 }
 
 export default LandingPage
+
+
+const Title = styled.div``
+
+const Top = styled.div`
+
+ display:none;
+
+@media screen and (max-width: 800px) {
+    display:flex;
+justify-content: space-between;
+margin: 0 10px;
+margin-bottom: 20px;
+margin-top: 20px;
+}
+`
+
+const LeftScreen = styled.div`
+flex: .2;
+display: flex;
+justify-content: center;
+@media screen and (max-width: 800px) {
+    /* display:none */
+}
+`
+
+const RightScreen = styled.div`
+flex: .8;
+/* padding: 0 30px; */
+background-color: #F6F6FA;
+border-left: 1px solid rgba(0,0,0,0.1);
+border-right: 1px solid rgba(0,0,0,0.1);
+display: flex;
+justify-content: center;
+@media screen and (max-width: 800px) {
+    flex:1
+}
+`
+
+
+const ViewScreen = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+
+@media screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+}
+`
+
 
 const Text = styled.div`
 margin: 10px 20px;
