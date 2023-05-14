@@ -47,13 +47,8 @@ const MyHistoryPage = () => {
                                             </Holding>
                                         </LoaderHold>
 
-
-
                                         <Space />
-                                        <NextRec>
-                                            <span>user mail:</span>
-                                            <Ad>{user?.email!}</Ad>
-                                        </NextRec>
+
                                     </MainHold>
                                 </div>
                                 <div>

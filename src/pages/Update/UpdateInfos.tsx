@@ -36,9 +36,7 @@ const UpdateInfos = () => {
                     </Top>
                     {/* <Card /> */}
                     <ViewScreen>
-                        {/* <RightScreenPage /> */}
 
-                        {/* right screen */}
                         <RightScreen>
                             <TopRecall>
 
@@ -73,10 +71,9 @@ const UpdateInfos = () => {
 
                                         </LoaderHold>
                                         <Space />
-                                        <NextRec>
-                                            <span>Your Mail:</span>
-                                            <Ad>{user?.email!}</Ad>
-                                        </NextRec>
+
+
+
                                     </MainHold>
                                 </div>
                                 <div>
@@ -107,7 +104,9 @@ const Space = styled.div`
 
 const Ad = styled.div`
   font-weight: bold;
-  font-size: 12px
+  font-size: 12px;
+  max-width: 100px;
+  background-color: red;
 `;
 
 const Holding = styled.div`

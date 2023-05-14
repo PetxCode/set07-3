@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import LoadingState from "../../LoadingState";
+import { registerUser } from "../../utils/API";
 
-const url = "https://codelab-hub.onrender.com/api/auth/create";
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ const Register = () => {
   const {
     handleSubmit,
     register,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(yupSchema),
   });
@@ -34,8 +33,7 @@ const Register = () => {
   const onSubmit = handleSubmit(async (data: any) => {
 
     // setLoading(true);
-    await axios
-      .post(`${url}`, data)
+    registerUser(data)
       .then((res) => {
 
         Swal.fire({

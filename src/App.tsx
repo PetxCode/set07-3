@@ -1,16 +1,19 @@
-import React from 'react'
 import { RouterProvider } from "react-router-dom"
 import { mainRoute } from './routes/mainRoute'
 import { StateProvider } from './Global/stateProvider'
-import ScrollToTop from './ToTop'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 const App = () => {
   return (
-
-    <StateProvider>   
-
+    <QueryClientProvider client={queryClient}>
+      <StateProvider>   
         <RouterProvider router={mainRoute} />
       </StateProvider>
-
+    </QueryClientProvider>
   )
 }
 

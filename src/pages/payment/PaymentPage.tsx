@@ -60,10 +60,13 @@ const PaymentPage = () => {
 
 
                                         <Space />
-                                        <NextRec>
+
+                                        {/* <NextRec>
                                             <span>user mail:</span>
                                             <Ad>{user?.email!}</Ad>
-                                        </NextRec>
+                                        </NextRec> */}
+
+
                                     </MainHold>
                                 </div>
                                 <div>

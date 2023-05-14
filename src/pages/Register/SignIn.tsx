@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import LoadingState from "../../LoadingState";
 import { getStart } from "../../Global/GlobalState";
+import { signin } from "../../utils/API";
 
 
 const url = "https://codelab-hub.onrender.com";
@@ -36,11 +37,13 @@ const SignIn = () => {
     resolver: yupResolver(yupSchema),
   });
 
+
+
   const onSubmit = handleSubmit(async (data: any) => {
     console.log("Push")
     setLoading(true);
-    await axios
-      .post(`${url}/api/auth/sign-in`, data)
+
+    signin(data)
       .then((res) => {
         dispatch(getStart(res.data.data));
 

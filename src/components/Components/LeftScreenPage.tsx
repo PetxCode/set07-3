@@ -184,6 +184,7 @@ border-radius: 50%;
 background-color: rgba(0,0,0,0.1);
 border: 1px solid purple;
 margin-top: 50px;
+object-fit: cover;
 `
 
 const Top = styled.div`

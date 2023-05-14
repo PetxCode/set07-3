@@ -20,6 +20,7 @@ const PersonalInfo = () => {
 
   const yupSchema = yup.object({
     userName: yup.string().required("Field must be filled"),
+    motivate: yup.string().required("Field must be filled"),
     prof: yup.string().required("Field must be filled"),
 
   });
@@ -66,7 +67,7 @@ const PersonalInfo = () => {
   });
 
   const getUserData = async () => {
-    await axios.get(`${url}/api/auth/${user?.id}`).then((res) => {
+    await axios.get(`${url}/api/auth/${user?._id}`).then((res) => {
       setUserData(res.data.data);
     });
   };
@@ -98,6 +99,17 @@ const PersonalInfo = () => {
               defaultValue={userData?.userName}
               {...register("prof")}
             />
+
+          </InputHolder>
+          <InputHolder>
+            <Blocker>Motivation</Blocker>
+
+            <Input
+              placeholder="What Motivate's You"
+              defaultValue={userData?.motivate}
+              {...register("motivate")}
+            />
+
           </InputHolder>
           {/* <Error>{errors.userName?.message}</Error> */}
 

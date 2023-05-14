@@ -9,6 +9,7 @@ const HistoryTable: React.FC = () => {
     useEffect(() => {
     }, []);
 
+
     return (
         <div style={{ display: "flex", justifyContent: "center" }} >
             <Container>
@@ -21,6 +22,7 @@ const HistoryTable: React.FC = () => {
                             history.map((props: any, i: number) => (
                                 <Box key={props._id} >
                                     <Bullet>{i + 1}</Bullet>
+
 
                                     <Text>
                                         <div>₦{props?.cost}</div>
@@ -48,8 +50,8 @@ const HistoryTable: React.FC = () => {
                                         <Rate2>{props?.generatedToken}</Rate2>
                                     </Text>
                                     <Text>
-                                        <div>Still Active</div>
-                                        <Rate2>{props?.generatedToken}</Rate2>
+                                        <div>Access</div>
+                                        <Rate2>{props?.access ? <div>true</div> : <div>false</div>}</Rate2>
                                     </Text>
 
                                 </Box>

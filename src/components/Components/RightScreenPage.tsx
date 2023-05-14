@@ -1,10 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 import pix from "../../assets/ani.gif"
 import Button from '../reUse/Button'
 import { AiOutlineLaptop } from "react-icons/ai"
-import { Server } from 'https'
 import { useGetUser } from '../../hooks/useGetUser'
 import { useGetHistory } from '../../hooks/useGetHistory'
 
@@ -24,7 +22,9 @@ const RightScreenPage = () => {
                 <Content>
                     <TopHead>Welcome back {userData.userName}</TopHead>
 
-                    <SubTitle>Make this illustration unique and true to the vibe of your project!</SubTitle>
+                    <SubTitle>  {
+                        userData?.motivate ? <div>{userData?.motivate}</div> : <div>Please go to Update profile and add, what daily MOTIVATEs you!</div>
+                    }</SubTitle>
                 </Content>
 
                 <Image src={pix} />
