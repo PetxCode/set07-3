@@ -10,6 +10,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
 import LoadingState from "../../LoadingState";
 import { useGetUser } from "../../hooks/useGetUser";
+import { useMutation } from "@tanstack/react-query"
+import { updateUserInfo } from "../../utils/API";
+import { useQueryPost } from "../../hooks/useQueryPost";
+// updateUserInfo
 
 const url = "https://codelab-hub.onrender.com";
 
@@ -18,63 +22,60 @@ const PersonalInfo = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
+
   const yupSchema = yup.object({
     userName: yup.string().required("Field must be filled"),
     motivate: yup.string().required("Field must be filled"),
     prof: yup.string().required("Field must be filled"),
-
   });
+
+  type formData = yup.InferType<typeof yupSchema>;
+
 
   const {
     handleSubmit,
     register,
-    formState: { errors },
-  } = useForm({
+  } = useForm<formData>({
     resolver: yupResolver(yupSchema),
   });
 
-  const [userData, setUserData] = useState([] as any);
+  const mutation = useMutation({
+    mutationKey: ["fetchData"],
 
-  const onSubmit = handleSubmit(async (data) => {
+    mutationFn: (value) => updateUserInfo(user?._id, value),
 
-    setLoading(true);
-    await axios
-      .patch(`${url}/api/auth/${user?._id}/update`, data)
-      .then((res) => {
-
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your account has been created successfully",
-          showConfirmButton: false,
-          timer: 2500,
-        }).then(() => {
-          navigate("/dashbord");
-        });
-        setLoading(false);
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: error.response.data.message,
-          text: `Please check and fix this ERROR`,
-          icon: "error",
-          showConfirmButton: false,
-          timer: 3500,
-        }).then(() => {
-          setLoading(false);
-        });
+    onSuccess: () => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your account has been created successfully",
+        showConfirmButton: false,
+        timer: 2500,
+      }).then(() => {
+        navigate("/dashboard");
       });
+      setLoading(false);
+    },
+
+    onError: (error: any) => {
+      Swal.fire({
+        title: error.response.data.message,
+        text: `Please check and fix this ERROR`,
+        icon: "error",
+        showConfirmButton: false,
+        timer: 3500,
+      }).then(() => {
+        setLoading(false);
+      });
+    }
+
+  })
+
+  const onSubmit = handleSubmit(async (data: any) => {
+    setLoading(true)
+    mutation.mutate(data)
+
   });
-
-  const getUserData = async () => {
-    await axios.get(`${url}/api/auth/${user?._id}`).then((res) => {
-      setUserData(res.data.data);
-    });
-  };
-
-  useEffect(() => {
-    getUserData();
-  }, []);
 
   return (
     <Container>
@@ -87,7 +88,7 @@ const PersonalInfo = () => {
 
             <Input
               placeholder="Enter Your user name"
-              defaultValue={userData?.userName}
+              defaultValue={user?.userName}
               {...register("userName")}
             />
           </InputHolder>
@@ -96,7 +97,7 @@ const PersonalInfo = () => {
 
             <Input
               placeholder="Enter Your Profession"
-              defaultValue={userData?.userName}
+              defaultValue={user?.prof}
               {...register("prof")}
             />
 
@@ -106,7 +107,7 @@ const PersonalInfo = () => {
 
             <Input
               placeholder="What Motivate's You"
-              defaultValue={userData?.motivate}
+              defaultValue={user?.motivate}
               {...register("motivate")}
             />
 

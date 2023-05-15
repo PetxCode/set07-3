@@ -5,11 +5,22 @@ import { useGetUser } from '../../hooks/useGetUser'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../Global/GlobalState'
 import { useNavigate } from 'react-router-dom'
+import { useQuery } from "@tanstack/react-query"
+import { getUserDetails } from '../../utils/API'
 
 const LeftScreenPage = () => {
     const userData: any = useGetUser()
     const dispatch = useDispatch()
     const navigation = useNavigate()
+
+    const queryUser = useQuery({
+        queryKey: ["fetchData"],
+        queryFn: () => getUserDetails(userData._id)
+    })
+
+    let data = queryUser?.data?.data?.data
+
+    console.log(userData._id)
     return (
         <Container>
             <Button
@@ -27,7 +38,7 @@ const LeftScreenPage = () => {
             <Title>
                 {userData?.userName}
             </Title>
-            <Job>{userData?.prof}</Job>
+            <Job>{userData?.prof}</Job> 
             <br />
             <Div>
                 <Top> Technical Core Strenght</Top>

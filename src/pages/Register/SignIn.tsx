@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import LoadingState from "../../LoadingState";
 import { getStart } from "../../Global/GlobalState";
-import { signin } from "../../utils/API";
+import { signin, verifyUser } from "../../utils/API";
 
 
 const url = "https://codelab-hub.onrender.com";
@@ -32,7 +32,6 @@ const SignIn = () => {
   const {
     handleSubmit,
     register,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(yupSchema),
   });
@@ -55,7 +54,6 @@ const SignIn = () => {
           timer: 2500,
         }).then(() => {
           navigate("/dashboard");
-          // window.location.reload();
         });
         setLoading(false);
       })
@@ -74,7 +72,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (id && token) {
-      axios.get(`${url}/api/auth/${id}/verify`);
+      verifyUser(id);
     }
   }, []);
 

@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import LoadingState from "../../LoadingState";
 import logo from "../../assets/2.png";
 import { useGetUser } from "../../hooks/useGetUser";
