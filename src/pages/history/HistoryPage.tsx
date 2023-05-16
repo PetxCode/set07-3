@@ -5,16 +5,13 @@ import moment from 'moment'
 import { ContextState } from '../../Global/stateProvider'
 import LeftScreenPage from '../../components/Components/LeftScreenPage'
 import TopRecall from '../../components/reUse/TopRecall'
-import ImageSettings from '../Register/ImageSettingPage'
 import { useGetUser } from '../../hooks/useGetUser'
-import PersonalInfo from '../Register/PersonalInfo'
 import HistoryTable from './HistoryTable'
 
 const MyHistoryPage = () => {
-    const { toggle } = useContext(ContextState)
+  const { toggle } = useContext(ContextState) 
     const user: any = useGetUser()
     const [show, setShow] = useState<boolean>(true)
-
 
     return (
         <Wrapper>
@@ -77,10 +74,6 @@ const Space = styled.div`
   flex:1
 `;
 
-const Ad = styled.div`
-  font-weight: bold;
- 
-`;
 
 const Holding = styled.div`
   margin-left: 10px;
@@ -112,11 +105,6 @@ transition: all 350ms;
     background-color:  rgba(255, 165, 0, 0.8);
   }
 `;
-const NextRec = styled.div`
-  margin-right: 10px;
-   font-size: 12px
-`;
-
 
 const MainHold = styled.div`
 margin-top: 10px;
@@ -180,12 +168,6 @@ justify-content: center;
 @media screen and (max-width: 800px) {
     flex-direction: column-reverse;
 }
-`
-
-
-const Text = styled.div`
-margin: 10px 20px;
-font-weight: 700;
 `
 
 const Main = styled.div`
